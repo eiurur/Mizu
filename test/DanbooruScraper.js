@@ -95,18 +95,4 @@ describe('DanbooruScraper', () => {
       done();
     });
   });
-
-  // it('should return weekly illustList when pass {term: "year"}', (done) => {
-  //   const opts = {
-  //     name: 'danbooru',
-  //     term: 'year',
-  //   };
-  //   const danbooru = Mizu.createScraper(opts);
-  //   danbooru.crawl()
-  //   .then( illustList => {
-  //     assert(_.isArray(illustList));
-  //     assert(_.isString(illustList[1].title));
-  //     done();
-  //   });
-  // });
 });
