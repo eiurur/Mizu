@@ -1,11 +1,13 @@
 {
   "name": "mizu",
   "version": "0.0.1",
-  "description": "",
+  "description": "Popular Image Downloader for Imageboard",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/*.js",
+    "test:danbooru": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Danbooru*.js",
     "test:sankaku_complex": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/SankakuComplex*.js",
+    "test:yande_re": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Yandere*.js",
     "lint": "eslint . --ext .js -c .eslintrc.json || true"
   },
   "keywords": [
