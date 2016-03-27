@@ -1,8 +1,8 @@
 'use strict';
 
-const _ = require('lodash');
+const _      = require('lodash');
 const assert = require('power-assert');
-const Mizu = require('../');
+const Mizu   = require('../');
 
 describe('YandereScraper', () => {
   it('should return weekly illustList when pass {term: "day"}', (done) => {
@@ -10,11 +10,15 @@ describe('YandereScraper', () => {
       name: 'yande_re',
       term: 'day',
     };
-    const yandere = Mizu.createScraper(opts);
+    const yandere = Mizu.createCrawler(opts);
     yandere.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].title));
+      done();
+    })
+    .catch( err => {
+      console.error(err);
       done();
     });
   });
@@ -25,7 +29,7 @@ describe('YandereScraper', () => {
       term: 'week',
       directory: 'yandere_test_images_week',
     };
-    const yandere = Mizu.createScraper(opts);
+    const yandere = Mizu.createCrawler(opts);
     yandere.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -37,6 +41,10 @@ describe('YandereScraper', () => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].filename));
       done();
+    })
+    .catch( err => {
+      console.error(err);
+      done();
     });
   });
 
@@ -45,7 +53,7 @@ describe('YandereScraper', () => {
       name: 'yande_re',
       term: 'month',
     };
-    const yandere = Mizu.createScraper(opts);
+    const yandere = Mizu.createCrawler(opts);
     yandere.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -63,7 +71,7 @@ describe('YandereScraper', () => {
       name: 'yande_re',
       term: 'year',
     };
-    const yandere = Mizu.createScraper(opts);
+    const yandere = Mizu.createCrawler(opts);
     yandere.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));

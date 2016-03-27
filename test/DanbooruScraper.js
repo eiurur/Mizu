@@ -11,11 +11,15 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'day',
     };
-    const danbooru = Mizu.createScraper(opts);
-    danbooru.crawl()
+    const danbooru = Mizu.createCrawler(opts);
+    danbooru.prev(1, 'day').crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
-      // assert(_.isString(illustList[1].title));
+      assert(_.isString(illustList[1].title));
+      done();
+    })
+    .catch( err => {
+      console.error(err);
       done();
     });
   });
@@ -26,8 +30,8 @@ describe('DanbooruScraper', () => {
       term: 'week',
       directory: 'danbooru_test_images_week',
     };
-    const danbooru = Mizu.createScraper(opts);
-    danbooru.crawl()
+    const danbooru = Mizu.createCrawler(opts);
+    danbooru.prev(1, 'week').crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].title));
@@ -38,6 +42,10 @@ describe('DanbooruScraper', () => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].filename));
       done();
+    })
+    .catch( err => {
+      console.error(err);
+      done();
     });
   });
 
@@ -46,11 +54,15 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'month',
     };
-    const danbooru = Mizu.createScraper(opts);
-    danbooru.crawl()
+    const danbooru = Mizu.createCrawler(opts);
+    danbooru.prev(1, 'month').crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].title));
+      done();
+    })
+    .catch( err => {
+      console.error(err);
       done();
     });
   });
@@ -60,7 +72,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'day',
     };
-    const danbooru = Mizu.createScraper(opts);
+    const danbooru = Mizu.createCrawler(opts);
     assert(danbooru.next(1, 'day').date === moment().add(1, 'days').format('YYYY-MM-DD'));
     assert(danbooru.next(1, 'week').date === moment().add(1, 'days').add(1, 'weeks').format('YYYY-MM-DD'));
     assert(danbooru.next(1, 'month').date === moment().add(1, 'days').add(1, 'weeks').add(1, 'months').format('YYYY-MM-DD'));
@@ -71,7 +83,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'day',
     };
-    const danbooru = Mizu.createScraper(opts);
+    const danbooru = Mizu.createCrawler(opts);
     assert(danbooru.prev(2, 'day').date === moment().subtract(2, 'days').format('YYYY-MM-DD'));
     assert(danbooru.prev(2, 'week').date === moment().subtract(2, 'days').subtract(2, 'weeks').format('YYYY-MM-DD'));
     assert(danbooru.prev(2, 'month').date === moment().subtract(2, 'days').subtract(2, 'weeks').subtract(2, 'months').format('YYYY-MM-DD'));
@@ -82,7 +94,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'month',
     };
-    const danbooru = Mizu.createScraper(opts);
+    const danbooru = Mizu.createCrawler(opts);
     danbooru.prev(3, 'month').crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -92,6 +104,10 @@ describe('DanbooruScraper', () => {
     .then( illustList => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].filename));
+      done();
+    })
+    .catch( err => {
+      console.error(err);
       done();
     });
   });

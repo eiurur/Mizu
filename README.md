@@ -22,7 +22,7 @@ Mizu
       term: 'day',
     }
 
-    const yandere = Mizu.createScraper(params);
+    const yandere = Mizu.createCrawler(params);
 
     // 今日人気だったイラストをダウンロード
     yandere.crawl()
@@ -32,8 +32,6 @@ Mizu
 
 ### danbooru
 
-[WIP]
-
     const Mizu = require('mizu');
 
     const params = {
@@ -41,7 +39,7 @@ Mizu
       term: 'week',
     }
 
-    const danbooru = Mizu.createScraper(params);
+    const danbooru = Mizu.createCrawler(params);
 
     // 今週人気だったイラストをダウンロード
     danbooru.crawl()
@@ -66,7 +64,7 @@ Mizu
       term: 'month',
     }
 
-    const sankaku_complex = Mizu.createScraper(params);
+    const sankaku_complex = Mizu.createCrawler(params);
 
     // 今月人気だったイラストをダウンロード
     sankaku_complex.crawl()
@@ -83,6 +81,6 @@ Mizu
 
 # Support
 
-- [ ] danbooru
+- [x] danbooru
 - [ ] SankakuComplex
 - [x] yande.re
