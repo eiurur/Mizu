@@ -29,6 +29,7 @@
     "lodash": "^4.6.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.12.0",
-    "randomstring": "^1.1.4"
+    "randomstring": "^1.1.4",
+    "request": "^2.69.0"
   }
 }
