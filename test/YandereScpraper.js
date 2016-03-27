@@ -1,3 +1,5 @@
+'use strict';
+
 const _ = require('lodash');
 const assert = require('power-assert');
 const Mizu = require('../');

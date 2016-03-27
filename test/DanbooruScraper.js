@@ -1,6 +1,8 @@
-const _ = require('lodash');
+'use strict';
+
+const _      = require('lodash');
 const assert = require('power-assert');
-const Mizu = require('../');
+const Mizu   = require('../');
 
 describe('DanbooruScraper', () => {
   it('should return daily illustList when pass {term: "day"}', (done) => {
