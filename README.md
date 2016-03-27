@@ -1,9 +1,9 @@
 Mizu
 ======
 
-> Minna-no-Okazu
+[![Build Status](https://travis-ci.org/eiurur/Mizu.svg?branch=master)](https://travis-ci.org/eiurur/Mizu)
 
-【WIP】
+> Minna-no-Okazu
 
 有名どころの画像掲示板からPopular画像をダウンロードするやつ
 
