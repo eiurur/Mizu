@@ -40,31 +40,39 @@ describe('YandereScraper', () => {
     });
   });
 
-  // it('should return weekly illustList when pass {term: "month"}', (done) => {
-  //   const opts = {
-  //     name: 'yande_re',
-  //     term: 'month',
-  //   };
-  //   const yandere = Mizu.createScraper(opts);
-  //   yandere.crawl()
-  //   .then( illustList => {
-  //     assert(_.isArray(illustList));
-  //     assert(_.isString(illustList[1].title));
-  //     done();
-  //   });
-  // });
+  it('should return monthly illustList when pass {term: "month"}', (done) => {
+    const opts = {
+      name: 'yande_re',
+      term: 'month',
+    };
+    const yandere = Mizu.createScraper(opts);
+    yandere.crawl()
+    .then( illustList => {
+      assert(_.isArray(illustList));
+      assert(_.isString(illustList[1].title));
+      done();
+    })
+    .catch( err => {
+      console.error(err);
+      done();
+    });
+  });
 
-  // it('should return weekly illustList when pass {term: "year"}', (done) => {
-  //   const opts = {
-  //     name: 'yande_re',
-  //     term: 'year',
-  //   };
-  //   const yandere = Mizu.createScraper(opts);
-  //   yandere.crawl()
-  //   .then( illustList => {
-  //     assert(_.isArray(illustList));
-  //     assert(_.isString(illustList[1].title));
-  //     done();
-  //   });
-  // });
+  it('should return yearly illustList when pass {term: "year"}', (done) => {
+    const opts = {
+      name: 'yande_re',
+      term: 'year',
+    };
+    const yandere = Mizu.createScraper(opts);
+    yandere.crawl()
+    .then( illustList => {
+      assert(_.isArray(illustList));
+      assert(_.isString(illustList[1].title));
+      done();
+    })
+    .catch( err => {
+      console.error(err);
+      done();
+    });
+  });
 });
