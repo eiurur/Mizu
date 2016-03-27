@@ -11,7 +11,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'day',
     };
-    const danbooru = Mizu.createScpraper(opts);
+    const danbooru = Mizu.createScraper(opts);
     danbooru.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -26,7 +26,7 @@ describe('DanbooruScraper', () => {
       term: 'week',
       directory: 'danbooru_test_images_week',
     };
-    const danbooru = Mizu.createScpraper(opts);
+    const danbooru = Mizu.createScraper(opts);
     danbooru.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -46,7 +46,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'month',
     };
-    const danbooru = Mizu.createScpraper(opts);
+    const danbooru = Mizu.createScraper(opts);
     danbooru.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -60,7 +60,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'day',
     };
-    const danbooru = Mizu.createScpraper(opts);
+    const danbooru = Mizu.createScraper(opts);
     assert(danbooru.next(1, 'day').date === moment().add(1, 'days').format('YYYY-MM-DD'));
     assert(danbooru.next(1, 'week').date === moment().add(1, 'days').add(1, 'weeks').format('YYYY-MM-DD'));
     assert(danbooru.next(1, 'month').date === moment().add(1, 'days').add(1, 'weeks').add(1, 'months').format('YYYY-MM-DD'));
@@ -71,7 +71,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'day',
     };
-    const danbooru = Mizu.createScpraper(opts);
+    const danbooru = Mizu.createScraper(opts);
     assert(danbooru.prev(2, 'day').date === moment().subtract(2, 'days').format('YYYY-MM-DD'));
     assert(danbooru.prev(2, 'week').date === moment().subtract(2, 'days').subtract(2, 'weeks').format('YYYY-MM-DD'));
     assert(danbooru.prev(2, 'month').date === moment().subtract(2, 'days').subtract(2, 'weeks').subtract(2, 'months').format('YYYY-MM-DD'));
@@ -82,7 +82,7 @@ describe('DanbooruScraper', () => {
       name: 'danbooru',
       term: 'month',
     };
-    const danbooru = Mizu.createScpraper(opts);
+    const danbooru = Mizu.createScraper(opts);
     danbooru.prev(3, 'month').crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -101,7 +101,7 @@ describe('DanbooruScraper', () => {
   //     name: 'danbooru',
   //     term: 'year',
   //   };
-  //   const danbooru = Mizu.createScpraper(opts);
+  //   const danbooru = Mizu.createScraper(opts);
   //   danbooru.crawl()
   //   .then( illustList => {
   //     assert(_.isArray(illustList));

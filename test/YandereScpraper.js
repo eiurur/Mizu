@@ -10,7 +10,7 @@ describe('YandereScraper', () => {
       name: 'yande_re',
       term: 'day',
     };
-    const yandere = Mizu.createScpraper(opts);
+    const yandere = Mizu.createScraper(opts);
     yandere.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -25,7 +25,7 @@ describe('YandereScraper', () => {
       term: 'week',
       directory: 'yandere_test_images_week',
     };
-    const yandere = Mizu.createScpraper(opts);
+    const yandere = Mizu.createScraper(opts);
     yandere.crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
@@ -45,7 +45,7 @@ describe('YandereScraper', () => {
   //     name: 'yande_re',
   //     term: 'month',
   //   };
-  //   const yandere = Mizu.createScpraper(opts);
+  //   const yandere = Mizu.createScraper(opts);
   //   yandere.crawl()
   //   .then( illustList => {
   //     assert(_.isArray(illustList));
@@ -59,7 +59,7 @@ describe('YandereScraper', () => {
   //     name: 'yande_re',
   //     term: 'year',
   //   };
-  //   const yandere = Mizu.createScpraper(opts);
+  //   const yandere = Mizu.createScraper(opts);
   //   yandere.crawl()
   //   .then( illustList => {
   //     assert(_.isArray(illustList));
