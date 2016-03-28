@@ -49,7 +49,7 @@ describe('YandereScraper', () => {
     })
     .then( illustList => {
       assert(_.isArray(illustList));
-      assert(_.isString(illustList[1].filename));
+      assert(_.isString(illustList[1].filename) && !_.isEmpty(illustList[1].filename));
       done();
     })
     .catch( err => {
