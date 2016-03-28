@@ -35,7 +35,7 @@ describe('YandereScraper', () => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].title));
 
-      return yandere.downloadIllusts();
+      return yandere.download();
     })
     .then( illustList => {
       assert(_.isArray(illustList));
