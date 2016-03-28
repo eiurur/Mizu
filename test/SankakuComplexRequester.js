@@ -6,6 +6,15 @@ const assert = require('power-assert');
 const Mizu   = require('../');
 
 describe('SankakuComplexRequester', () => {
+  it('should return hostname(chan.sankakucomplex.com) when get hostname', () => {
+    const opts = {
+      name: 'sankaku_complex',
+      term: 'day',
+    };
+    const sankaku_complex = Mizu.createCrawler(opts);
+    assert(sankaku_complex.hostname === 'chan.sankakucomplex.com');
+  });
+
   it('should add date', () => {
     const opts = {
       name: 'sankaku_complex',

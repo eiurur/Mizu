@@ -5,6 +5,16 @@ const assert = require('power-assert');
 const Mizu   = require('../');
 
 describe('YandereScraper', () => {
+  it('should return hostname(yande.re) when get hostname', () => {
+    const opts = {
+      name: 'yande_re',
+      term: 'day',
+    };
+    const yande_re = Mizu.createCrawler(opts);
+    assert(yande_re.hostname === 'yande.re');
+  });
+
+
   it('should return weekly illustList when pass {term: "day"}', (done) => {
     const opts = {
       name: 'yande_re',

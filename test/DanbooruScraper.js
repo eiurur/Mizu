@@ -6,6 +6,15 @@ const assert = require('power-assert');
 const Mizu   = require('../');
 
 describe('DanbooruScraper', () => {
+  it('should return hostname(danbooru.donmai.us) when get hostname', () => {
+    const opts = {
+      name: 'danbooru',
+      term: 'day',
+    };
+    const danbooru = Mizu.createCrawler(opts);
+    assert(danbooru.hostname === 'danbooru.donmai.us');
+  });
+
   it('should add date', () => {
     const opts = {
       name: 'danbooru',
