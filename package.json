@@ -1,7 +1,7 @@
 {
   "name": "mizu",
   "version": "0.0.1",
-  "description": "Popular Image Downloader for Imageboard",
+  "description": "Downloader of popular image for the image board",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/*.js",

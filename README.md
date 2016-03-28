@@ -5,7 +5,7 @@ Mizu
 
 > Minna-no-Okazu
 
-有名どころの画像掲示板からPopular画像をダウンロードするやつ
+Downloader of popular image for the image board.
 
 # Installation
 
@@ -26,7 +26,7 @@ Mizu
 
     // 今日人気だったイラストをダウンロード
     yandere.crawl()
-    .then( _ => yandere.downloadIllusts() )
+    .then( _ => yandere.download() )
     .then( illustList => console.log(illustList) )
     .catch( err => console.error(err) );
 
@@ -43,19 +43,17 @@ Mizu
 
     // 今週人気だったイラストをダウンロード
     danbooru.crawl()
-    .then( _ => danbooru.downloadIllusts() )
+    .then( _ => danbooru.download() )
     .then( illustList => console.log(illustList) )
     .catch( err => console.error(err) );
 
-    // 3ヶ月前に人気だったイラストをダウンロード
+    // 3ヶ月前の週に人気だったイラストをダウンロード
     danbooru.prev(3, 'month').crawl()
-    .then( _ => danbooru.downloadIllusts() )
+    .then( _ => danbooru.download() )
     .then( illustList => console.log(illustList) )
     .catch( err => console.error(err) );
 
 ### SankakuComplex
-
-[WIP]
 
     const Mizu = require('mizu');
 
@@ -68,13 +66,19 @@ Mizu
 
     // 今月人気だったイラストをダウンロード
     sankaku_complex.crawl()
-    .then( _ => sankaku_complex.downloadIllusts() )
+    .then( _ => sankaku_complex.download() )
     .then( illustList => console.log(illustList) )
     .catch( err => console.error(err) );
 
-    // 2週間前に人気だったイラストをダウンロード
+    // 2週間前の月に人気だったイラストをダウンロード
     sankaku_complex.prev(2, 'week').crawl()
-    .then( _ => sankaku_complex.downloadIllusts() )
+    .then( _ => sankaku_complex.download() )
+    .then( illustList => console.log(illustList) )
+    .catch( err => console.error(err) );
+
+    // 4週間前の月に人気だったイラスト(2ページ目)をダウンロード
+    sankaku_complex.prev(2, 'week').turnPage(1).crawl()
+    .then( _ => sankaku_complex.download() )
     .then( illustList => console.log(illustList) )
     .catch( err => console.error(err) );
 
@@ -82,5 +86,5 @@ Mizu
 # Support
 
 - [x] danbooru
-- [ ] SankakuComplex
+- [x] SankakuComplex
 - [x] yande.re
