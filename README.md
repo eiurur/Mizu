@@ -2,6 +2,9 @@ Mizu
 ======
 
 [![Build Status](https://travis-ci.org/eiurur/Mizu.svg?branch=master)](https://travis-ci.org/eiurur/Mizu)
+[![bitHound Overall Score](https://www.bithound.io/github/eiurur/Mizu/badges/score.svg)](https://www.bithound.io/github/eiurur/Mizu)
+[![bitHound Dependencies](https://www.bithound.io/github/eiurur/Mizu/badges/dependencies.svg)](https://www.bithound.io/github/eiurur/Mizu/master/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/eiurur/Mizu/badges/devDependencies.svg)](https://www.bithound.io/github/eiurur/Mizu/master/dependencies/npm)
 
 > Minna-no-Okazu
 
