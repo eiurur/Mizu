@@ -62,7 +62,7 @@ describe('DanbooruScraper', () => {
       directory: 'danbooru_test_images_week',
     };
     const danbooru = Mizu.createCrawler(opts);
-    danbooru.prev(1, 'week').crawl()
+    danbooru.prev(1, 'day').crawl()
     .then( illustList => {
       assert(_.isArray(illustList));
       assert(_.isString(illustList[1].title));

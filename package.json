@@ -8,7 +8,7 @@
     "test:danbooru": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Danbooru*.js",
     "test:sankaku_complex": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/SankakuComplex*.js",
     "test:yande_re": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Yandere*.js",
-    "lint": "eslint . --ext .js -c .eslintrc.json || true"
+    "lint": "eslint . --ext .js -c .eslintrc.json --cache || true"
   },
   "keywords": [
     "danbooru",
