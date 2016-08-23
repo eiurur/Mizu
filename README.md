@@ -8,7 +8,7 @@ Mizu
 
 > Minna-no-Okazu
 
-Downloader of popular image for the image board.
+Downloader of popular images for the image board.
 
 # Installation
 
