@@ -1,6 +1,6 @@
 {
   "name": "mizu",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Downloader of popular image for the image board",
   "main": "index.js",
   "scripts": {
