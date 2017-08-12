@@ -1,7 +1,7 @@
 {
   "name": "mizu",
-  "version": "0.1.6",
-  "description": "Downloader of popular image for the image board",
+  "version": "0.1.7",
+  "description": "Downloader of popular images for the image board",
   "main": "index.js",
   "scripts": {
     "test": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/*.js",
@@ -10,13 +10,7 @@
     "test:yande_re": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Yandere*.js",
     "lint": "eslint . --ext .js -c .eslintrc.json --cache || true"
   },
-  "keywords": [
-    "danbooru",
-    "yande.re",
-    "SankakuComplex",
-    "scraping",
-    "crawl"
-  ],
+  "keywords": ["danbooru", "yande.re", "SankakuComplex", "scraping", "crawl"],
   "author": "eiurur",
   "license": "MIT",
   "devDependencies": {
@@ -30,6 +24,8 @@
   "dependencies": {
     "axios": "^0.13.1",
     "cheerio-httpcli": "^0.6.5",
+    "download": "^6.2.5",
+    "fs-promise": "^2.0.3",
     "lodash": "^4.6.1",
     "mkdirp": "^0.5.1",
     "moment": "^2.12.0",
