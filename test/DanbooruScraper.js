@@ -11,8 +11,8 @@ describe("DanbooruScraper", () => {
       name: "danbooru",
       term: "day"
     };
-    const danbooru = Mizu.createCrawler(opts);
-    assert(danbooru.hostname === "danbooru.donmai.us");
+    const crawler = Mizu.createCrawler(opts);
+    assert(crawler.hostname === "danbooru.donmai.us");
   });
 
   it("should add date", () => {
@@ -20,22 +20,22 @@ describe("DanbooruScraper", () => {
       name: "danbooru",
       term: "day"
     };
-    const danbooru = Mizu.createCrawler(opts);
+    const crawler = Mizu.createCrawler(opts);
     assert(
-      danbooru.next(1, "day").date ===
-        moment().add(1, "days").format("YYYY-MM-DD")
+      crawler.next(1, "day").date ===
+      moment().add(1, "days").format("YYYY-MM-DD")
     );
     assert(
-      danbooru.next(1, "week").date ===
-        moment().add(1, "days").add(1, "weeks").format("YYYY-MM-DD")
+      crawler.next(1, "week").date ===
+      moment().add(1, "days").add(1, "weeks").format("YYYY-MM-DD")
     );
     assert(
-      danbooru.next(1, "month").date ===
-        moment()
-          .add(1, "days")
-          .add(1, "weeks")
-          .add(1, "months")
-          .format("YYYY-MM-DD")
+      crawler.next(1, "month").date ===
+      moment()
+        .add(1, "days")
+        .add(1, "weeks")
+        .add(1, "months")
+        .format("YYYY-MM-DD")
     );
   });
 
@@ -44,22 +44,22 @@ describe("DanbooruScraper", () => {
       name: "danbooru",
       term: "day"
     };
-    const danbooru = Mizu.createCrawler(opts);
+    const crawler = Mizu.createCrawler(opts);
     assert(
-      danbooru.prev(2, "day").date ===
-        moment().subtract(2, "days").format("YYYY-MM-DD")
+      crawler.prev(2, "day").date ===
+      moment().subtract(2, "days").format("YYYY-MM-DD")
     );
     assert(
-      danbooru.prev(2, "week").date ===
-        moment().subtract(2, "days").subtract(2, "weeks").format("YYYY-MM-DD")
+      crawler.prev(2, "week").date ===
+      moment().subtract(2, "days").subtract(2, "weeks").format("YYYY-MM-DD")
     );
     assert(
-      danbooru.prev(2, "month").date ===
-        moment()
-          .subtract(2, "days")
-          .subtract(2, "weeks")
-          .subtract(2, "months")
-          .format("YYYY-MM-DD")
+      crawler.prev(2, "month").date ===
+      moment()
+        .subtract(2, "days")
+        .subtract(2, "weeks")
+        .subtract(2, "months")
+        .format("YYYY-MM-DD")
     );
   });
 
@@ -68,8 +68,8 @@ describe("DanbooruScraper", () => {
       name: "danbooru",
       term: "day"
     };
-    const danbooru = Mizu.createCrawler(opts);
-    danbooru
+    const crawler = Mizu.createCrawler(opts);
+    crawler
       .prev(1, "day")
       .crawl()
       .then(illustList => {
@@ -89,22 +89,21 @@ describe("DanbooruScraper", () => {
       term: "week",
       directory: "danbooru_test_images_week"
     };
-    const danbooru = Mizu.createCrawler(opts);
-    danbooru
+    const crawler = Mizu.createCrawler(opts);
+    crawler
       .prev(1, "day")
       .crawl()
       .then(illustList => {
-        console.log(illustList);
         assert(_.isArray(illustList));
         assert(_.isString(illustList[1].title));
 
-        return danbooru.download();
+        return crawler.download();
       })
       .then(illustList => {
         assert(_.isArray(illustList));
         assert(
           _.isString(illustList[1].filename) &&
-            !_.isEmpty(illustList[1].filename)
+          !_.isEmpty(illustList[1].filename)
         );
         done();
       })
@@ -119,8 +118,8 @@ describe("DanbooruScraper", () => {
       name: "danbooru",
       term: "month"
     };
-    const danbooru = Mizu.createCrawler(opts);
-    danbooru
+    const crawler = Mizu.createCrawler(opts);
+    crawler
       .prev(1, "month")
       .crawl()
       .then(illustList => {
@@ -139,20 +138,20 @@ describe("DanbooruScraper", () => {
       name: "danbooru",
       term: "month"
     };
-    const danbooru = Mizu.createCrawler(opts);
-    danbooru
+    const crawler = Mizu.createCrawler(opts);
+    crawler
       .prev(3, "month")
       .crawl()
       .then(illustList => {
         assert(_.isArray(illustList));
         assert(_.isString(illustList[1].title));
-        return danbooru.download();
+        return crawler.download();
       })
       .then(illustList => {
         assert(_.isArray(illustList));
         assert(
           _.isString(illustList[1].filename) &&
-            !_.isEmpty(illustList[1].filename)
+          !_.isEmpty(illustList[1].filename)
         );
         done();
       })
