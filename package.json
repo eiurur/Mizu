@@ -4,19 +4,19 @@
   "description": "Downloader of popular images for the image board",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/*.js",
-    "test:danbooru": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Danbooru*.js",
-    "test:sankaku_complex": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/SankakuComplex*.js",
-    "test:yande_re": "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Yandere*.js",
+    "test":
+      "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/*.js",
+    "test:amatsuka":
+      "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Amatsuka*.js",
+    "test:danbooru":
+      "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Danbooru*.js",
+    "test:sankaku_complex":
+      "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/SankakuComplex*.js",
+    "test:yande_re":
+      "mocha --compilers js:espower-babel/guess --timeout 300000 test/**/Yandere*.js",
     "lint": "eslint . --ext .js -c .eslintrc.json --cache || true"
   },
-  "keywords": [
-    "danbooru",
-    "yande.re",
-    "SankakuComplex",
-    "scraping",
-    "crawl"
-  ],
+  "keywords": ["danbooru", "yande.re", "SankakuComplex", "scraping", "crawl"],
   "author": "eiurur",
   "license": "MIT",
   "devDependencies": {
