@@ -15,41 +15,6 @@ describe('AmatsukaRequester', () => {
     assert(amatsuka.hostname === 'amatsuka.herokuapp.com');
   });
 
-  // it('should add date', () => {
-  //   const opts = {
-  //     name: 'amatsuka',
-  //     term: 'day',
-  //   };
-  //   const amatsuka = Mizu.createCrawler(opts);
-  //   assert(amatsuka.next(1, 'day').date === moment().add(1, 'days').format('YYYY-MM-DD'));
-  //   assert(amatsuka.next(1, 'week').date === moment().add(1, 'days').add(1, 'weeks').format('YYYY-MM-DD'));
-  //   assert(amatsuka.next(1, 'month').date === moment().add(1, 'days').add(1, 'weeks').add(1, 'months').format('YYYY-MM-DD'));
-  // });
-
-  // it('should sbstract date', () => {
-  //   const opts = {
-  //     name: 'amatsuka',
-  //     term: 'day',
-  //   };
-  //   const amatsuka = Mizu.createCrawler(opts);
-  //   assert(amatsuka.date === moment().subtract(2, 'days').format('YYYY-MM-DD'));
-  //   assert(amatsuka.date === moment().subtract(2, 'days').subtract(2, 'weeks').format('YYYY-MM-DD'));
-  //   assert(amatsuka.date === moment().subtract(2, 'days').subtract(2, 'weeks').subtract(2, 'months').format('YYYY-MM-DD'));
-  // });
-
-  // it('should turnPage', () => {
-  //   const opts = {
-  //     name: 'amatsuka',
-  //     term: 'day',
-  //   };
-  //   const amatsuka = Mizu.createCrawler(opts);
-  //   assert(amatsuka.page === 1);
-  //   assert(amatsuka.turnPage(1).page === 2);
-  //   assert(amatsuka.turnPage(2).page === 4);
-  //   assert(amatsuka.turnPage(-1).page === 3);
-  //   assert(amatsuka.turnPage(-100).page === 1);
-  // });
-
   it('should return daily illustList when pass {sortType:"like", term: "day"}', done => {
     const opts = {
       name: 'amatsuka',
