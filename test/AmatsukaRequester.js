@@ -1,5 +1,3 @@
-'use strict';
-
 const _ = require('lodash');
 const moment = require('moment');
 const assert = require('power-assert');
@@ -15,7 +13,7 @@ describe('AmatsukaRequester', () => {
     assert(amatsuka.hostname === 'amatsuka.herokuapp.com');
   });
 
-  it('should return daily illustList when pass {sortType:"like", term: "day"}', done => {
+  it('should return daily illustList when pass {sortType:"like", term: "day"}', (done) => {
     const opts = {
       name: 'amatsuka',
       sortType: 'like',
@@ -27,18 +25,18 @@ describe('AmatsukaRequester', () => {
     const amatsuka = Mizu.createCrawler(opts);
     amatsuka
       .crawl()
-      .then(illustList => {
+      .then((illustList) => {
         assert(_.isArray(illustList));
         assert(_.isString(illustList[1].title));
         done();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         done();
       });
   });
 
-  it('should return weekly illustList when pass {sortType:"retweet", term: "week"}', done => {
+  it('should return weekly illustList when pass {sortType:"retweet", term: "week"}', (done) => {
     const opts = {
       name: 'amatsuka',
       sortType: 'retweet',
@@ -51,53 +49,77 @@ describe('AmatsukaRequester', () => {
     const amatsuka = Mizu.createCrawler(opts);
     amatsuka
       .crawl()
-      .then(illustList => {
+      .then((illustList) => {
         assert(_.isArray(illustList));
         assert(_.isString(illustList[1].title));
         return amatsuka.download();
       })
-      .then(illustList => {
+      .then((illustList) => {
         assert(_.isArray(illustList));
-        assert(
-          _.isString(illustList[1].filename) &&
-            !_.isEmpty(illustList[1].filename),
-        );
+        assert(_.isString(illustList[1].filename) && !_.isEmpty(illustList[1].filename));
         done();
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
         done();
       });
   });
 
-  it('should return monthly illustList when pass {sortType: "total", term: "month"}', done => {
+  it('should return monthly illustList when pass {sortType: "total", term: "month"}', (done) => {
     const opts = {
       name: 'amatsuka',
       sortType: 'total',
       term: 'month',
       date: moment()
-        .add('month', -2)
+        .add('month', -3)
         .format('YYYY-MM-DD'),
       directory: 'amatsuka_test_images_total_month',
     };
     const amatsuka = Mizu.createCrawler(opts);
     amatsuka
       .crawl()
-      .then(illustList => {
+      .then((illustList) => {
         assert(_.isArray(illustList));
         assert(_.isString(illustList[1].title));
 
         return amatsuka.download();
       })
-      .then(illustList => {
+      .then((illustList) => {
         assert(_.isArray(illustList));
-        assert(
-          _.isString(illustList[1].filename) &&
-            !_.isEmpty(illustList[1].filename),
-        );
+        assert(_.isString(illustList[1].filename) && !_.isEmpty(illustList[1].filename));
         done();
       })
-      .catch(err => {
+      .catch((err) => {
+        console.error(err);
+        done();
+      });
+  });
+
+  it('should return monthly illustList when pass {sortType: "lustful", term: "month"}', (done) => {
+    const opts = {
+      name: 'amatsuka',
+      sortType: 'lustful',
+      term: 'month',
+      date: moment()
+        .add('day', -1)
+        .format('YYYY-MM-DD'),
+      directory: 'amatsuka_test_images_lustful_month',
+    };
+    const amatsuka = Mizu.createCrawler(opts);
+    amatsuka
+      .crawl()
+      .then((illustList) => {
+        assert(_.isArray(illustList));
+        assert(_.isString(illustList[1].title));
+
+        return amatsuka.download();
+      })
+      .then((illustList) => {
+        assert(_.isArray(illustList));
+        assert(_.isString(illustList[1].filename) && !_.isEmpty(illustList[1].filename));
+        done();
+      })
+      .catch((err) => {
         console.error(err);
         done();
       });

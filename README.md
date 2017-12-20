@@ -1,5 +1,4 @@
-Mizu
-======
+# Mizu
 
 [![Build Status](https://travis-ci.org/eiurur/Mizu.svg?branch=master)](https://travis-ci.org/eiurur/Mizu)
 [![bitHound Overall Score](https://www.bithound.io/github/eiurur/Mizu/badges/score.svg)](https://www.bithound.io/github/eiurur/Mizu)
@@ -19,7 +18,6 @@ Downloader of popular images for the image board.
 ### yande.re
 
 ```JavaScript
-
 const Mizu = require('mizu');
 
 const params = {
@@ -34,13 +32,11 @@ yandere.crawl()
 .then( _ => yandere.download() )
 .then( illustList => console.log(illustList) )
 .catch( err => console.error(err) );
-
 ```
 
 ### danbooru
 
 ```JavaScript
-
 const Mizu = require('mizu');
 
 const params = {
@@ -61,13 +57,11 @@ danbooru.prev(3, 'month').crawl()
 .then( _ => danbooru.download() )
 .then( illustList => console.log(illustList) )
 .catch( err => console.error(err) );
-
 ```
 
 ### SankakuComplex
 
 ```JavaScript
-
 const Mizu = require('mizu');
 
 const params = {
@@ -94,8 +88,11 @@ sankaku_complex.prev(2, 'week').turnPage(1).crawl()
 .then( _ => sankaku_complex.download() )
 .then( illustList => console.log(illustList) )
 .catch( err => console.error(err) );
-
 ```
+
+### Amatsuka
+
+TODO
 
 ### Output (Example)
 
@@ -127,6 +124,7 @@ danbooru.crawl()
 
 # Support
 
-- [x] danbooru
-- [x] SankakuComplex
-- [x] yande.re
+* [x] danbooru
+* [x] SankakuComplex
+* [x] yande.re
+* [x] <a href="https://amatsuka.herokuapp.com" target="_blank">Amatsuka</a>

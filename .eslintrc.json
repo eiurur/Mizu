@@ -1,12 +1,8 @@
 {
-    "extends": "airbnb",
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-      "strict": "off",
-      "no-undef": "off",
-      "space-in-parens": "off",
-      "no-multi-spaces": "off"
-    }
+  "extends": "airbnb-base",
+  "plugins": ["import"],
+  "rules": {
+    "linebreak-style": ["off"],
+    "no-underscore-dangle": ["off"]
+  }
 }
