@@ -3,6 +3,7 @@
   "plugins": ["import"],
   "rules": {
     "linebreak-style": ["off"],
-    "no-underscore-dangle": ["off"]
+    "no-underscore-dangle": ["off"],
+    "prefer-arrow-callback": ["off"]
   }
 }
