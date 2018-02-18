@@ -5,10 +5,10 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "ava -v -T=5m -C test/**/*.js",
-    "test:amatsuka": "ava -v -T=5m -C test/**/Amatsuka.spec.js",
-    "test:danbooru": "ava -v -T=5m -C test/**/Danbooru.spec.js",
-    "test:sankaku_complex": "ava -v -T=5m -C test/**/SankakuComplex.spec.js",
-    "test:yande_re": "ava -v -T=5m -C test/**/Yandere.spec.js",
+    "test:amatsuka": "ava -v -T=5m test/Amatsuka.spec.js",
+    "test:danbooru": "ava -v -T=5m test/Danbooru.spec.js",
+    "test:sankaku_complex": "ava -v -T=5m test/SankakuComplex.spec.js",
+    "test:yande_re": "ava -v -T=5m test/Yandere.spec.js",
     "lint": "eslint . --ext .js -c .eslintrc.json --cache || true"
   },
   "keywords": ["danbooru", "yande.re", "SankakuComplex", "scraping", "crawl"],
