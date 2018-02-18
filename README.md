@@ -9,122 +9,155 @@
 
 Downloader of popular images for the image board.
 
+# Support
+
+**Illust (2D)**
+
+* [x] danbooru
+* [x] SankakuComplex
+* [x] yande.re
+* [x] <a href="https://amatsuka.herokuapp.com" target="_blank">Amatsuka</a>
+* [ ] nijie
+
+**CG (3D)**
+
+* [ ] iwara
+
+**Real (3D)**
+
+* [ ] eroterest
+
 # Installation
 
     npm i mizu -S
 
 # Usage
 
-### yande.re
+```js
+const { Yandere, SankakuComplex, Danbooru } = require('mizu');
 
-```JavaScript
-const Mizu = require('mizu');
+(async () => {
+  /**
+   * yande.re days
+   */
+  const options = { term: 'days', date: '2018-02-15' };
+  const yandere = new Yandere(options);
 
-const params = {
-  name: 'yande_re',
-  term: 'day',
-}
+  // 2018-02-15
+  const r_yandere1 = await yandere.download({
+    directory: './yandere_images_days',
+    amount: 0,
+  });
 
-const yandere = Mizu.createCrawler(params);
+  // 2018-02-14
+  const r_yandere2 = await yandere.download({
+    directory: './yandere_images_days',
+    amount: -1,
+  });
 
-// 今日人気だったイラストをダウンロード
-yandere.crawl()
-.then( _ => yandere.download() )
-.then( illustList => console.log(illustList) )
-.catch( err => console.error(err) );
+  // 2018-02-17
+  const r_yandere3 = await yandere.download({
+    directory: './yandere_images_days',
+    amount: 2,
+  });
+
+  /**
+   * SankakuComplex weeks
+   */
+  const options = { term: 'weeks', date: '2018-02-15' };
+  const sankakuComplex = new SankakuComplex(options);
+
+  // 2018-02-15
+  const r_sankakuComplex1 = await sankakuComplex.download({
+    directory: './sankakuComplex_images_weeks',
+    amount: 0,
+  });
+
+  // 2018-02-08
+  const r_sankakuComplex2 = await sankakuComplex.download({
+    directory: './sankakuComplex_images_weeks',
+    amount: -1,
+  });
+
+  // 2018-03-01
+  const r_sankakuComplex3 = await sankakuComplex.download({
+    directory: './sankakuComplex_images_weeks',
+    amount: 2,
+  });
+
+  /**
+   * Danbooru months
+   */
+  const options = { term: 'months', date: '2018-03-15' };
+  const danbooru = new Danbooru(options);
+
+  // 2018-03
+  const r_danbooru1 = await danbooru.download({
+    directory: './danbooru_images_months',
+    amount: 0,
+  });
+
+  // 2018-02
+  const r_danbooru2 = await danbooru.download({
+    directory: './danbooru_images_months',
+    amount: -1,
+  });
+
+  // 2018-05
+  const r_danbooru3 = await danbooru.download({
+    directory: './danbooru_images_months',
+    amount: 2,
+  });
+
+  /**
+   * Amatsuks TODO
+   */
+})();
 ```
-
-### danbooru
-
-```JavaScript
-const Mizu = require('mizu');
-
-const params = {
-  name: 'danbooru',
-  term: 'week',
-}
-
-const danbooru = Mizu.createCrawler(params);
-
-// 今週人気だったイラストをダウンロード
-danbooru.crawl()
-.then( _ => danbooru.download() )
-.then( illustList => console.log(illustList) )
-.catch( err => console.error(err) );
-
-// 3ヶ月前の週に人気だったイラストをダウンロード
-danbooru.prev(3, 'month').crawl()
-.then( _ => danbooru.download() )
-.then( illustList => console.log(illustList) )
-.catch( err => console.error(err) );
-```
-
-### SankakuComplex
-
-```JavaScript
-const Mizu = require('mizu');
-
-const params = {
-  name: 'sankaku_complex',
-  term: 'month',
-}
-
-const sankaku_complex = Mizu.createCrawler(params);
-
-// 今月人気だったイラストをダウンロード
-sankaku_complex.crawl()
-.then( _ => sankaku_complex.download() )
-.then( illustList => console.log(illustList) )
-.catch( err => console.error(err) );
-
-// 2週間前の月に人気だったイラストをダウンロード
-sankaku_complex.prev(2, 'week').crawl()
-.then( _ => sankaku_complex.download() )
-.then( illustList => console.log(illustList) )
-.catch( err => console.error(err) );
-
-// 4週間前の月に人気だったイラスト(2ページ目)をダウンロード
-sankaku_complex.prev(2, 'week').turnPage(1).crawl()
-.then( _ => sankaku_complex.download() )
-.then( illustList => console.log(illustList) )
-.catch( err => console.error(err) );
-```
-
-### Amatsuka
-
-TODO
 
 ### Output (Example)
 
 ```js
-const danbooru = Mizu.createCrawler(params);
-danbooru.crawl()
-.then( _ => danbooru.download() )
-.then( illustList => console.log(illustList) )
+const { Yandere } = require('mizu');
+
+(async () => {
+  const options = { term: 'days', date: '2018-02-15' };
+  const yandere = new Yandere(options);
+
+  const result = await yandere.download({
+    directory: './yandere_images_days',
+    amount: 0,
+  });
+
+  console.log(result)
+})();
 
 ↓
 
-{  
-    title:'2girls apron arched_back arm_up artoria_pendragon_(all) ass bikini black_bikini blonde_hair blush breasts closed_mouth cowboy_shot eyebrows_visible_through_hair fate/grand_order fate_(series) green_eyes hair_between_eyes hair_intakes highres hood hooded_jacket hoodie jacket light_brown_hair long_hair long_sleeves looking_at_viewer maid_headdress medium_breasts mop multiple_girls nail_polish nero_claudius_(swimsuit_caster)_(fate) open_clothes open_hoodie open_jacket saber_alter saber_extra side-tie_bikini sideboob simple_background smile striped striped_bikini swimsuit sword twintails v waist_apron weapon white_background yang-do yellow_eyes',
-    sourceURL:'https://danbooru.donmai.us/posts/2817083',
-    largeImgURL:'https://danbooru.donmai.us/data/__artoria_pendragon_nero_claudius_saber_alter_and_saber_extra_fate_grand_order_and_fate_series_drawn_by_yang_do__c149cb7a38ae80e42db0a05d4fe261cc.jpg',
-    mediumImgURL:'https://danbooru.donmai.us/data/sample/__artoria_pendragon_nero_claudius_saber_alter_and_saber_extra_fate_grand_order_and_fate_series_drawn_by_yang_do__sample-c149cb7a38ae80e42db0a05d4fe261cc.jpg',
-    url:'https://danbooru.donmai.us/data/sample/__artoria_pendragon_nero_claudius_saber_alter_and_saber_extra_fate_grand_order_and_fate_series_drawn_by_yang_do__sample-c149cb7a38ae80e42db0a05d4fe261cc.jpg',
-    ext:'.jpg'
-},
-{  
-    title:'1girl alexmaster arm_support bangs beach bikini blonde_hair blue_eyes blush breasts closed_mouth collarbone day eyebrows_visible_through_hair frown groin hair_ribbon leaning_back long_hair looking_at_viewer navel original outdoors palm_tree partially_visible_vulva pink_bikini red_ribbon ribbon shiny shiny_skin small_breasts spread_legs stomach sweat swimsuit thighs towel tree twintails umbrella wavy_mouth',
-    sourceURL:'https://danbooru.donmai.us/posts/2816002',
-    largeImgURL:'https://danbooru.donmai.us/data/__original_drawn_by_alexmaster__f53ddbc12565036e0ce803419c079696.jpg',
-    mediumImgURL:'https://danbooru.donmai.us/data/__original_drawn_by_alexmaster__f53ddbc12565036e0ce803419c079696.jpg',
-    url:'https://danbooru.donmai.us/data/__original_drawn_by_alexmaster__f53ddbc12565036e0ce803419c079696.jpg',
-    ext:'.jpg'
-},
+[
+  {
+    title: 'Rating: Explicit Score: 126 Tags: bra breasts dakimakura nipples pantsu panty_pull pussy shouna_mitsuishi stylus User: DDD',
+    source: 'https://yande.re/post/show/433202',
+    ext: '.jpg',
+    images:
+    {
+      large: 'https://files.yande.re/sample/6cc19d02c799c4188cd0879ea4c1204d/yande.re%20433202%20sample%20bra%20breasts%20dakimakura%20nipples%20pantsu%20panty_pull%20pussy%20shouna_mitsuishi%20stylus.jpg',
+      medium: 'https://files.yande.re/sample/6cc19d02c799c4188cd0879ea4c1204d/yande.re%20433202%20sample%20bra%20breasts%20dakimakura%20nipples%20pantsu%20panty_pull%20pussy%20shouna_mitsuishi%20stylus.jpg'
+    },
+    filename: '2d11847a6289b5385ed50977af06ad3f0ef9d41ecd77d0edcc98000718513c81.jpg',
+    filepath: 'D:\\workspace\\Github\\development_projects\\00_developing\\Mizu\\yandere_images_months\\2d11847a6289b5385ed50977af06ad3f0ef9d41ecd77d0edcc98000718513c81.jpg'
+  },
+  {
+    title: 'Rating: Explicit Score: 125 Tags: bathing breast_hold n.g. naked nipples pussy uncensored wet User: mash',
+    source: 'https://yande.re/post/show/433957',
+    ext: '.jpg',
+    images:
+    {
+      large: 'https://files.yande.re/jpeg/cb1af6f50b60e336b9da45a285233ba8/yande.re%20433957%20bathing%20breast_hold%20n.g.%20naked%20nipples%20pussy%20uncensored%20wet.jpg',
+      medium: 'https://files.yande.re/sample/cb1af6f50b60e336b9da45a285233ba8/yande.re%20433957%20bathing%20breast_hold%20n.g.%20naked%20nipples%20pussy%20uncensored%20wet.jpg'
+    },
+    filename: '008df2822591b4e7359ada067b3537275ca71942934381ad390371f26d1ab4b3.jpg',
+    filepath: 'D:\\workspace\\Github\\development_projects\\00_developing\\Mizu\\yandere_images_months\\008df2822591b4e7359ada067b3537275ca71942934381ad390371f26d1ab4b3.jpg'
+  }
+]
 ```
-
-# Support
-
-* [x] danbooru
-* [x] SankakuComplex
-* [x] yande.re
-* [x] <a href="https://amatsuka.herokuapp.com" target="_blank">Amatsuka</a>
