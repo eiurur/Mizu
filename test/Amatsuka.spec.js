@@ -1,6 +1,6 @@
 const test = require('ava');
-// const { Amatsuka } = require('../');
-// const { testDownloading } = require('./helpers/testDownloading');
+const { Amatsuka } = require('../');
+const { testDownloading } = require('./helpers/testDownloading');
 
 test('WIP', (t) => {
   t.pass();
