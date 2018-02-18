@@ -1,16 +1,7 @@
 const _ = require('lodash');
 const test = require('ava');
 const { Yandere } = require('../lib/');
-
-const testDownloading = (t, result) => {
-  try {
-    t.true(Array.isArray(result));
-    t.true(_.isString(result[1].filename));
-  } catch (e) {
-    console.log(e);
-    t.fail();
-  }
-};
+const { testDownloading } = require('./helper/testDownloading');
 
 test('should return daoly illustList when pass {term: "days"}', async (t) => {
   const options = { term: 'days' };
