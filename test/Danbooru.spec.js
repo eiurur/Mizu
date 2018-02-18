@@ -1,6 +1,6 @@
 const test = require('ava');
-const { Danbooru } = require('../lib/');
-const { testDownloading } = require('./helper/testDownloading');
+const { Danbooru } = require('../');
+const { testDownloading } = require('./helpers/testDownloading');
 
 test('should return daoly illustList when pass {term: "days"}', async (t) => {
   const options = { term: 'days' };

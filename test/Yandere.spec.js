@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const test = require('ava');
-const { Yandere } = require('../lib/');
-const { testDownloading } = require('./helper/testDownloading');
+const { Yandere } = require('../');
+const { testDownloading } = require('./helpers/testDownloading');
 
 test('should return daoly illustList when pass {term: "days"}', async (t) => {
   const options = { term: 'days' };

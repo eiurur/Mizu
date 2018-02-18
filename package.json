@@ -2,7 +2,7 @@
   "name": "mizu",
   "version": "1.0.0",
   "description": "Downloader of popular images for the image board",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "ava -v -T=5m -C test/**/*.js",
     "test:amatsuka": "ava -v -T=5m test/Amatsuka.spec.js",
@@ -11,13 +11,7 @@
     "test:yande_re": "ava -v -T=5m test/Yandere.spec.js",
     "lint": "eslint . --ext .js -c .eslintrc.json --cache || true"
   },
-  "keywords": [
-    "danbooru",
-    "yande.re",
-    "SankakuComplex",
-    "scraping",
-    "crawl"
-  ],
+  "keywords": ["danbooru", "yande.re", "SankakuComplex", "scraping", "crawl"],
   "author": "eiurur",
   "license": "MIT",
   "devDependencies": {
