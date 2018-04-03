@@ -27,6 +27,10 @@ Downloader of popular images for the image board.
 
 * [ ] eroterest
 
+**Shop**
+
+* [x] DLSite
+
 # Installation
 
     npm i mizu -S
@@ -40,8 +44,8 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
   /**
    * yande.re days
    */
-  const options = { term: 'days', date: '2018-02-15' };
-  const yandere = new Yandere(options);
+  const initial = { term: 'days', date: '2018-02-15' };
+  const yandere = new Yandere(initial);
 
   // 2018-02-15
   const r_yandere1 = await yandere.download({
@@ -64,8 +68,8 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
   /**
    * SankakuComplex weeks
    */
-  const options = { term: 'weeks', date: '2018-02-15' };
-  const sankakuComplex = new SankakuComplex(options);
+  const initial = { term: 'weeks', date: '2018-02-15' };
+  const sankakuComplex = new SankakuComplex(initial);
 
   // 2018-02-15
   const r_sankakuComplex1 = await sankakuComplex.download({
@@ -88,8 +92,8 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
   /**
    * Danbooru months
    */
-  const options = { term: 'months', date: '2018-03-15' };
-  const danbooru = new Danbooru(options);
+  const initial = { term: 'months', date: '2018-03-15' };
+  const danbooru = new Danbooru(initial);
 
   // 2018-03
   const r_danbooru1 = await danbooru.download({
@@ -112,6 +116,35 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
   /**
    * Amatsuks TODO
    */
+
+  // 期間 = days, 販売日 = all, カテゴリ = 電子書籍, 作品タイプ = 雑誌/アンソロ または 単行本
+  const initial = { term: 'days' };
+  const options = {
+    range: 'all',
+    category: 'books',
+    workTypes: ['_雑誌/アンソロ', '_単行本'],
+  };
+  const servive = new DLSite(initial);
+  const result = await servive.download({
+    directory: './dlsite_all_books_days',
+    amount: 0,
+    options,
+  });
+
+  // 期間 = weeks, 販売日 = 30日以内, カテゴリ = 同人, 作品タイプ = 音声作品 または 音楽作品, アフィリエイトIDを付与
+  const initial = { term: 'weeks' };
+  const options = {
+    range: 'new',
+    category: 'maniax',
+    workTypes: ['SOU', 'MUS'],
+    affiliateId: 'kawpaa',
+  };
+  const servive = new DLSite(initial);
+  const r_dlsite1 = await servive.download({
+    directory: './dlsite_new_maniax_weeks',
+    amount: 0,
+    options,
+  });
 })();
 ```
 
