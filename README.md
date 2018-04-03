@@ -117,6 +117,9 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
    * Amatsuks TODO
    */
 
+  /**
+   * DLSite
+   */
   // 期間 = days, 販売日 = all, カテゴリ = 電子書籍, 作品タイプ = 雑誌/アンソロ または 単行本
   const initial = { term: 'days' };
   const options = {
