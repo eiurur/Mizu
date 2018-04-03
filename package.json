@@ -1,23 +1,18 @@
 {
   "name": "mizu",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Downloader of popular images for the image board",
   "main": "lib/index.js",
   "scripts": {
     "test": "ava -v -T=5m -C test/**/*.js",
     "test:amatsuka": "ava -v -T=5m test/Amatsuka.spec.js",
     "test:danbooru": "ava -v -T=5m test/Danbooru.spec.js",
+    "test:dlsite": "ava -v -T=5m test/DLSite.spec.js",
     "test:sankaku_complex": "ava -v -T=5m test/SankakuComplex.spec.js",
     "test:yande_re": "ava -v -T=5m test/Yandere.spec.js",
     "lint": "eslint . --ext .js -c .eslintrc.json --cache || true"
   },
-  "keywords": [
-    "danbooru",
-    "yande.re",
-    "SankakuComplex",
-    "scraping",
-    "crawl"
-  ],
+  "keywords": ["danbooru", "yande.re", "SankakuComplex", "scraping", "crawl"],
   "author": "eiurur",
   "license": "MIT",
   "devDependencies": {
@@ -27,7 +22,7 @@
     "eslint-plugin-import": "^2.8.0"
   },
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.0",
     "cheerio-httpcli": "^0.7.1",
     "download": "^6.2.5",
     "fs-extra": "^5.0.0",
