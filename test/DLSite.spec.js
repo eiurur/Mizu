@@ -53,6 +53,24 @@ test('should return monthly illustList when pass {term: "months"}', async (t) =>
   testDownloading(t, result);
 });
 
+test('should return monthly illustList when pass {term: "months"}', async (t) => {
+  const initial = { term: 'months' };
+  const options = {
+    range: 'new',
+    category: 'maniax',
+    workTypes: ['MOV', 'RPG'],
+    skip: 0,
+    limit: 50,
+  };
+  const servive = new DLSite(initial);
+  const result = await servive.download({
+    directory: './dlsite_new_maniax_months_skip_limit',
+    amount: -1,
+    options,
+  });
+  testDownloading(t, result);
+});
+
 test('should return daoly illustList when pass {term: "days"}', async (t) => {
   const initial = { term: 'days' };
   const options = { range: 'all', category: 'books', workTypes: ['_雑誌/アンソロ', '_単行本'] };
