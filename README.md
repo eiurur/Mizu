@@ -13,23 +13,23 @@ Downloader of popular images for the image board.
 
 **Illust (2D)**
 
-* [x] danbooru
-* [x] SankakuComplex
-* [x] yande.re
-* [x] <a href="https://amatsuka.herokuapp.com" target="_blank">Amatsuka</a>
-* [ ] nijie
+- [x] danbooru
+- [x] SankakuComplex
+- [x] yande.re
+- [x] <a href="https://amatsuka.herokuapp.com" target="_blank">Amatsuka</a>
+- [ ] nijie
 
 **CG (3D)**
 
-* [ ] iwara
+- [ ] iwara
 
 **Real (3D)**
 
-* [ ] eroterest
+- [ ] eroterest
 
 **Shop**
 
-* [x] DLSite
+- [x] DLSite
 
 # Installation
 
@@ -124,8 +124,8 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
   const initial = { term: 'days' };
   const options = {
     range: 'all',
-    category: 'books',
-    workTypes: ['_雑誌/アンソロ', '_単行本'],
+    type: 'books',
+    category: 'magazines',
   };
   const servive = new DLSite(initial);
   const result = await servive.download({
@@ -134,12 +134,13 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
     options,
   });
 
-  // 期間 = weeks, 販売日 = 30日以内, カテゴリ = 同人, 作品タイプ = 音声作品 または 音楽作品, アフィリエイトIDを付与
+  // 期間 = weeks, 販売日 = 30日以内, カテゴリ = 同人, 作品タイプ = 音声作品, アフィリエイトIDを付与
   const initial = { term: 'weeks' };
   const options = {
     range: 'new',
-    category: 'maniax',
-    workTypes: ['SOU', 'MUS'],
+    type: 'maniax',
+    category: 'voice',
+    sub: 'SOU',
     affiliateId: 'kawpaa',
   };
   const servive = new DLSite(initial);
