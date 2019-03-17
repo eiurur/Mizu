@@ -94,7 +94,7 @@ test('should return weekly illustList when pass {term: "weeks"} at books', async
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"} and date at books', async (t) => {
+test('should return weekly illustList when pass {term: "weeks"} and date = new at books', async (t) => {
   const initial = { term: 'weeks' };
   const options = { type: 'books', category: 'comic', date: 'new' };
   const servive = new DLSite(initial);
@@ -106,7 +106,7 @@ test('should return weekly illustList when pass {term: "weeks"} and date at book
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"} and date at books', async (t) => {
+test('should return weekly illustList when pass {term: "weeks"} and date = all at books', async (t) => {
   const initial = { term: 'weeks' };
   const options = { type: 'books', category: 'comic', date: 'all' };
   const servive = new DLSite(initial);
