@@ -1,6 +1,6 @@
 # Mizu
 
-[![Build Status](https://travis-ci.org/eiurur/Mizu.svg?branch=master)](https://travis-ci.org/eiurur/Mizu)
+[![Build Status](https://travis-ci.com/eiurur/Mizu.svg?branch=master)](https://travis-ci.com/eiurur/Mizu)
 
 > Minna-no-Okazu
 

@@ -1,6 +1,6 @@
 const test = require('ava');
 const { DLSite } = require('../');
-const { testDownloading } = require('./helpers/testDownloading');
+const { testDownloading } = require('./helpers/_testDownloading');
 
 test('should return daoly illustList when pass {term: "days"} and category, sub', async (t) => {
   const initial = { term: 'days' };
