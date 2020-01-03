@@ -1,8 +1,8 @@
 const test = require('ava');
 const { Amatsuka } = require('../');
-const { testDownloading } = require('./helpers/_testDownloading');
+const { testDownloading } = require('./helpers/_checker');
 
-test('WIP', (t) => {
+test('WIP', t => {
   t.pass();
 });
 
