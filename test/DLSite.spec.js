@@ -2,7 +2,7 @@ const test = require('ava');
 const { DLSite } = require('../');
 const { testScraping, testDownloading } = require('./helpers/_checker');
 
-test('should return daily contents object when pass {term: "days"} and category, sub', async t => {
+test('should return daily contents object when pass {term: "days"} and category, sub', async (t) => {
   const initial = { term: 'days' };
   const options = {
     type: 'maniax',
@@ -18,7 +18,7 @@ test('should return daily contents object when pass {term: "days"} and category,
   testScraping(t, result);
 });
 
-test('should return daily illustList when pass {term: "days"} and category, sub', async t => {
+test('should return daily illustList when pass {term: "days"} and category, sub', async (t) => {
   const initial = { term: 'days' };
   const options = {
     type: 'maniax',
@@ -35,7 +35,7 @@ test('should return daily illustList when pass {term: "days"} and category, sub'
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"} and category, sub', async t => {
+test('should return weekly illustList when pass {term: "weeks"} and category, sub', async (t) => {
   const initial = { term: 'weeks' };
   const options = {
     type: 'maniax',
@@ -52,7 +52,7 @@ test('should return weekly illustList when pass {term: "weeks"} and category, su
   testDownloading(t, result);
 });
 
-test('should return monthly illustList when pass {tern: "month"}  and category, sub', async t => {
+test('should return monthly illustList when pass {tern: "month"}  and category, sub', async (t) => {
   const initial = { term: 'months' };
   const options = {
     type: 'maniax',
@@ -69,7 +69,7 @@ test('should return monthly illustList when pass {tern: "month"}  and category, 
   testDownloading(t, result);
 });
 
-test('should return monthly illustList when pass {term: "months"} and cateory, skip, limit', async t => {
+test('should return monthly illustList when pass {term: "months"} and cateory, skip, limit', async (t) => {
   const initial = { term: 'months' };
   const options = {
     type: 'maniax',
@@ -86,7 +86,7 @@ test('should return monthly illustList when pass {term: "months"} and cateory, s
   testDownloading(t, result);
 });
 
-test('should return daily illustList when pass {term: "days"} at books', async t => {
+test('should return daily illustList when pass {term: "days"} at books', async (t) => {
   const initial = { term: 'days' };
   const options = { type: 'books', category: 'magazin' };
   const servive = new DLSite(initial);
@@ -98,7 +98,7 @@ test('should return daily illustList when pass {term: "days"} at books', async t
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"} at books', async t => {
+test('should return weekly illustList when pass {term: "weeks"} at books', async (t) => {
   const initial = { term: 'weeks' };
   const options = { type: 'books', category: 'comic' };
   const servive = new DLSite(initial);
@@ -110,7 +110,7 @@ test('should return weekly illustList when pass {term: "weeks"} at books', async
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"} and date = new at books', async t => {
+test('should return weekly illustList when pass {term: "weeks"} and date = new at books', async (t) => {
   const initial = { term: 'weeks' };
   const options = { type: 'books', category: 'comic', date: 'new' };
   const servive = new DLSite(initial);
@@ -122,7 +122,7 @@ test('should return weekly illustList when pass {term: "weeks"} and date = new a
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"} and date = all at books', async t => {
+test('should return weekly illustList when pass {term: "weeks"} and date = all at books', async (t) => {
   const initial = { term: 'weeks' };
   const options = { type: 'books', category: 'comic', date: 'all' };
   const servive = new DLSite(initial);
@@ -132,4 +132,22 @@ test('should return weekly illustList when pass {term: "weeks"} and date = all a
     options,
   });
   testDownloading(t, result);
+});
+
+test('should return 50 items when pass {limit: "50"}', async (t) => {
+  const initial = { term: 'months' };
+  const options = {
+    type: 'maniax',
+    category: 'voice',
+    sub: 'SOU',
+    skip: 0,
+    limit: 50,
+  };
+  const servive = new DLSite(initial);
+  const result = await servive.download({
+    directory: './dlsite_50_limit',
+    amount: -1,
+    options,
+  });
+  t.true(result.length === 50);
 });
