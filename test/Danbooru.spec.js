@@ -1,9 +1,13 @@
 const test = require('ava');
 const { Danbooru } = require('../');
 const { testDownloading } = require('./helpers/_checker');
+const auth = {
+  login: process.env.DANBOORU_USERNAME,
+  api_key: process.env.DANBOORU_API_KEY,
+};
 
-test('should return daoly illustList when pass {term: "days"}', async t => {
-  const initial = { term: 'days' };
+test('should return daoly illustList when pass {term: "days"}', async (t) => {
+  const initial = { term: 'days', auth };
   const servive = new Danbooru(initial);
   const result = await servive.download({
     directory: './danbooru_images_days',
@@ -12,8 +16,8 @@ test('should return daoly illustList when pass {term: "days"}', async t => {
   testDownloading(t, result);
 });
 
-test('should return weekly illustList when pass {term: "weeks"}', async t => {
-  const initial = { term: 'weeks' };
+test('should return weekly illustList when pass {term: "weeks"}', async (t) => {
+  const initial = { term: 'weeks', auth };
   const servive = new Danbooru(initial);
   const result = await servive.download({
     directory: './danbooru_images_weeks',
@@ -22,8 +26,8 @@ test('should return weekly illustList when pass {term: "weeks"}', async t => {
   testDownloading(t, result);
 });
 
-test('should return monthly illustList when pass {term: "months"}', async t => {
-  const initial = { term: 'months' };
+test('should return monthly illustList when pass {term: "months"}', async (t) => {
+  const initial = { term: 'months', auth };
   const servive = new Danbooru(initial);
   const result = await servive.download({
     directory: './danbooru_images_months',
