@@ -79,7 +79,15 @@ const { Yandere, SankakuComplex, Danbooru } = require('mizu');
   /**
    * Danbooru months
    */
-  const initial = { term: 'months', date: '2018-03-15' };
+  /* 
+    requirement under permssions: 
+      explore/posts:popular
+      explore/posts:searche
+      explore/posts:viewed
+      posts:show
+  */
+  const auth = { login: 'YOUR_DANBOORU_USERNAME', api_key: 'YOUR_DANBOORU_API_KEY' };
+  const initial = { term: 'months', date: '2018-03-15', auth };
   const danbooru = new Danbooru(initial);
 
   // 2018-03
