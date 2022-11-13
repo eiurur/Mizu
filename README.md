@@ -13,16 +13,6 @@ Downloader of popular images for the image board.
 - [x] danbooru
 - [x] SankakuComplex
 - [x] yande.re
-- [x] <a href="https://amatsuka.herokuapp.com" target="_blank">Amatsuka</a>
-- [ ] nijie
-
-**CG (3D)**
-
-- [ ] iwara
-
-**Real (3D)**
-
-- [ ] eroterest
 
 **Shop**
 
