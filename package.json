@@ -5,7 +5,6 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "ava -v -T=5m -C test/*.spec.js",
-    "test:amatsuka": "ava -v -T=5m test/Amatsuka.spec.js",
     "test:danbooru": "ava -v -T=5m test/Danbooru.spec.js",
     "test:dlsite": "ava -v -T=5m test/DLSite.spec.js",
     "test:sankaku_complex": "ava -v -T=5m test/SankakuComplex.spec.js",
